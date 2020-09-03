@@ -1,0 +1,52 @@
+* fridago-demo
+A demo of using fridago.
+
+#+BEGIN_SRC shell
+$ git clone https://github.com/dsjlzh/fridago-demo fridago-demo
+$ cd fridago-demo
+$ go mod vendor
+$ mkdir -p vendor/github.com/dsjlzh/fridago/libs
+#+END_SRC
+
+Download https://github.com/frida/frida/releases/download/12.8.20/frida-core-devkit-12.8.20-linux-x86_64.tar.xz
+Extract it, then copy frida-core.h and libfrida-core.a to "vendor/github.com/dsjlzh/fridago/libs/"
+#+BEGIN_SRC shell
+$ go build
+#+END_SRC
+
+Start Android Emulator.
+
+#+BEGIN_SRC shell
+$ ./fridago-demo
+#+END_SRC
+
+Output like:
+
+#+BEGIN_EXAMPLE
+> ./fridago-demo                                                                                                                                                                                           master  ✱
+INFO[0000] frida init ...
+INFO[0000] frida init ok
+INFO[0000] DeviceManager: new ...
+INFO[0000] DeviceManager: new ok
+DEBU[0000] Session: create script ...                    name=example
+INFO[0000] Logger                    fields.level=info text="[*] close(27)"
+INFO[0000] Logger                    fields.level=info text="[*] close(27)"
+INFO[0000] Logger                    fields.level=info text="[*] open(\"/proc/self/cmdline\")"
+INFO[0000] Logger                    fields.level=info text="[*] close(27)"
+INFO[0000] Logger                    fields.level=info text="[*] open(\"/system/app/Chrome/Chrome.apk.x86.flock\")"
+INFO[0000] Logger                    fields.level=info text="[*] open(\"/data/dalvik-cache/x86/system@app@Chrome@Chrome.apk@classes.vdex\")"
+INFO[0000] Logger                    fields.level=info text="[*] close(27)"
+INFO[0000] Logger                    fields.level=info text="[*] open(\"/system/app/Chrome/Chrome.apk\")"
+INFO[0000] Logger                    fields.level=info text="[*] close(27)"
+INFO[0000] Logger                    fields.level=info text="[*] open(\"/system/framework/x86/boot.art\")"
+INFO[0000] Logger                    fields.level=info text="[*] close(27)"
+INFO[0000] Logger                    fields.level=info text="[*] open(\"/data/dalvik-cache/x86/system@framework@boot.art\")"
+INFO[0000] Logger                    fields.level=info text="[*] close(27)"
+INFO[0000] Logger                    fields.level=info text="[*] open(\"/data/dalvik-cache/x86/system@app@Chrome@Chrome.apk@classes.art\")"
+INFO[0000] Logger                    fields.level=info text="[*] close(28)"
+INFO[0000] Logger                    fields.level=info text="[*] close(27)"
+INFO[0000] Logger                    fields.level=info text="[*] open(\"/system/app/Chrome/Chrome.apk\")"
+
+...
+
+#+END_EXAMPLE
