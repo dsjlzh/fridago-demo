@@ -26,7 +26,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	sess, err := dev.Attach("com.android.chrome")
+	sess, err := dev.Attach(pid)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -46,9 +46,9 @@ func main() {
 
 	go func() {
 		for {
-			_, found, _ := sess.Dev.FindProcessByPidSync(sess.Pid)
-			if !found {
-				fmt.Println("process quitted")
+			_, err := sess.Dev.FindProcessByPidSync(sess.Pid)
+			if err != nil {
+				fmt.Println("process has quitted")
 				chQuit <- true
 			}
 			time.Sleep(time.Second * 1)
@@ -64,7 +64,7 @@ func main() {
 		sess.Detach()
 		dev.Kill(pid)
 	case <-chQuit:
-		fmt.Println("quit")
+		fmt.Println("quitted")
 	}
 
 	fmt.Println("done")
