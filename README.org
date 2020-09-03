@@ -1,5 +1,5 @@
 * fridago-demo
-A demo of using fridago.
+** A demo of using fridago.
 
 #+BEGIN_SRC shell
 $ git clone https://github.com/dsjlzh/fridago-demo fridago-demo
@@ -8,19 +8,20 @@ $ go mod vendor
 $ mkdir -p vendor/github.com/dsjlzh/fridago/libs
 #+END_SRC
 
-Download https://github.com/frida/frida/releases/download/12.8.20/frida-core-devkit-12.8.20-linux-x86_64.tar.xz
-Extract it, then copy frida-core.h and libfrida-core.a to "vendor/github.com/dsjlzh/fridago/libs/"
+- Download https://github.com/frida/frida/releases/download/12.8.20/frida-core-devkit-12.8.20-linux-x86_64.tar.xz
+- Extract it, then copy frida-core.h and libfrida-core.a to "vendor/github.com/dsjlzh/fridago/libs/"
+
 #+BEGIN_SRC shell
 $ go build
 #+END_SRC
 
-Start Android Emulator.
+- Start Android Emulator.
 
 #+BEGIN_SRC shell
 $ ./fridago-demo
 #+END_SRC
 
-Output like:
+- Output like:
 
 #+BEGIN_EXAMPLE
 > ./fridago-demo                                                                                                                                                                                           master  ✱
