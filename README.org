@@ -1,5 +1,5 @@
 * fridago-demo
-** A demo of using fridago.
+** A demo of using github.com/dsjlzh/fridago
 
 #+BEGIN_SRC shell
 $ git clone https://github.com/dsjlzh/fridago-demo fridago-demo
